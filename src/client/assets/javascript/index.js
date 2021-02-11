@@ -35,15 +35,15 @@ function setupClickHandlers() {
     "click",
     function (event) {
       const { target } = event;
-      console.log(target);
+
       // Race track form field
-      if (target.matches(".card.track")) {
-        handleSelectTrack(target);
+      if (target.parentNode.matches(".card.track")) {
+        handleSelectTrack(target.parentNode);
       }
 
       // Podracer form field
-      if (target.matches(".card.podracer")) {
-        handleSelectPodRacer(target);
+      if (target.parentNode.matches(".card.podracer")) {
+        handleSelectPodRacer(target.parentNode);
       }
 
       // Submit create race form
