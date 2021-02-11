@@ -75,21 +75,19 @@ async function delay(ms) {
 
 // This async function controls the flow of the race, add the logic and error handling
 async function handleCreateRace() {
-  // render starting UI
-  renderAt("#race", renderRaceStartView());
+  renderAt("#race", renderRaceStartView(store.track_id));
 
-  // TODO - Get player_id and track_id from the store
+  try {
+    const { player_id, track_id } = store;
+    const race = await createRace(player_id, track_id);
+    store.race_id = race.ID;
 
-  // const race = TODO - invoke the API call to create the race, then save the result
-
-  // TODO - update the store with the race id
-
-  // The race has been created, now start the countdown
-  // TODO - call the async function runCountdown
-
-  // TODO - call the async function startRace
-
-  // TODO - call the async function runRace
+    await runCountdown();
+    await startRace(store.race_id);
+    await runRace(store.race_id);
+  } catch (err) {
+    console.log("Problem with handleCreateRace function::", err);
+  }
 }
 
 function runRace(raceID) {
@@ -174,7 +172,7 @@ function renderRacerCars(racers) {
 			<h4>Loading Racers...</h4>
 		`;
   }
-  
+
   const results = racers.map(renderRacerCard).join("");
 
   return `
@@ -350,14 +348,12 @@ function startRace(id) {
   return fetch(`${SERVER}/api/races/${id}/start`, {
     method: "POST",
     ...defaultFetchOpts(),
-  })
-    .catch((err) => console.log("Problem with startRace request::", err));
+  }).catch((err) => console.log("Problem with startRace request::", err));
 }
 
 function accelerate(id) {
   return fetch(`${SERVER}/api/races/${id}/accelerate`, {
     method: "POST",
     ...defaultFetchOpts(),
-  })
-    .catch((err) => console.log("Problem with accelerate request::", err));
+  }).catch((err) => console.log("Problem with accelerate request::", err));
 }
