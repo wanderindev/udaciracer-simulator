@@ -35,7 +35,7 @@ function setupClickHandlers() {
     "click",
     function (event) {
       const { target } = event;
-
+      console.log(target);
       // Race track form field
       if (target.matches(".card.track")) {
         handleSelectTrack(target);
@@ -155,7 +155,7 @@ function handleSelectTrack(target) {
   // add class selected to current target
   target.classList.add("selected");
 
-  // TODO - save the selected track id to the store
+  store.track_id = target.id;
 }
 
 function handleAccelerate() {
