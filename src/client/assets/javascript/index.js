@@ -171,15 +171,15 @@ function handleAccelerate() {
 function renderRacerCars(racers) {
   if (!racers.length) {
     return `
-			<h4>Loading Racers...</4>
+			<h4>Loading Racers...</h4>
 		`;
   }
-
+  
   const results = racers.map(renderRacerCard).join("");
 
   return `
 		<ul id="racers">
-			${reuslts}
+			${results}
 		</ul>
 	`;
 }
