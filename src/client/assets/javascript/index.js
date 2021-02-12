@@ -111,20 +111,20 @@ function runRace(raceID) {
 
 async function runCountdown() {
   try {
-    // wait for the DOM to load
     await delay(1000);
     let timer = 3;
 
     return new Promise((resolve) => {
-      // TODO - use Javascript's built in setInterval method to count down once per second
-
-      // run this DOM manipulation to decrement the countdown for the user
-      document.getElementById("big-numbers").innerHTML = --timer;
-
-      // TODO - if the countdown is done, clear the interval, resolve the promise, and return
+      const intervalId = setInterval(() => {
+        document.getElementById("big-numbers").innerHTML = --timer;
+        if (!timer) {
+          clearInterval(intervalId);
+          resolve();
+        }
+      }, 1000);
     });
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log("Problem with runCountdown function::", err);
   }
 }
 
