@@ -56,6 +56,7 @@ function setupClickHandlers() {
 
       // Handle acceleration click
       if (target.matches("#gas-peddle")) {
+        console.log('accelerate');
         handleAccelerate(target);
       }
     },
@@ -161,7 +162,7 @@ function handleSelectTrack(target) {
 
 function handleAccelerate() {
   console.log("accelerate button clicked");
-  // TODO - Invoke the API call to accelerate
+  accelerate(store.race_id);
 }
 
 // HTML VIEWS ------------------------------------------------
