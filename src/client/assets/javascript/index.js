@@ -80,7 +80,7 @@ async function handleCreateRace() {
   try {
     const { player_id, track_id } = store;
     const race = await createRace(player_id, track_id);
-    store.race_id = race.ID;
+    store.race_id = race.ID - 1;
 
     await runCountdown();
     await startRace(store.race_id);
