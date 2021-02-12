@@ -21,7 +21,7 @@
 ## Project overview
 You can find the starter code for the project [here](https://github.com/udacity/nd032-c3-asynchronous-programming-with-javascript-project-starter).
 
-The purpose of the project create a race simulation game using asynchronous JavaScript.  Udacity provided much of the code.  My task
+The purpose of the project is to create a race simulation game using asynchronous JavaScript.  Udacity provided much of the code.  My task
 was to complete all TODOs in `.client/assets/javascript/index.js`.
 
 ## How to use
