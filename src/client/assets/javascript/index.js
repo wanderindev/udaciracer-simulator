@@ -141,7 +141,6 @@ function handleSelectPodRacer(target) {
   // add class selected to current target
   target.classList.add("selected");
 
-  // TODO - save the selected racer to the store
   store.player_id = parseInt(target.id);
 }
 
@@ -230,7 +229,7 @@ function renderCountdown(count) {
 	`;
 }
 
-function renderRaceStartView(track, racers) {
+function renderRaceStartView(track) {
   return `
 		<header>
 			<h1>Race: ${track.name}</h1>
