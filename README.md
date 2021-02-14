@@ -15,7 +15,7 @@
   </a>
 </p>
 
->Udaciracer Simulator Game is the third project for the Intemediate JavaScript Nanodegree. This
+>Udaciracer Simulator Game is the third project for the Intermediate JavaScript Nanodegree. This
 > project gives the student the opportunity to apply what was learned in the Asynchronous JavaScript course.
 
 ## Project overview
@@ -50,7 +50,7 @@ root to start the front end.
 
 #### WINDOWS USERS -- Setting Environment Variables
 If you are using a windows machine:
-1. `cd` into the root of the project containing data.json
+1. `cd` into the root of the project containing `data.json`
 2. Run the following command to add the environment variable: ```set DATA_FILE=./data.json```
 
 ### Start the Frontend
